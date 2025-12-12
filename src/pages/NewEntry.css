@@ -1,0 +1,149 @@
+:root{
+  --qg-bg:#f8f8f8;
+  --qg-paper:#fcfcfc;
+  --qg-line:#d3d3d3;
+  --qg-ink:#111111;
+  --qg-ink-soft:#555555;
+}
+
+.new-entry-root{
+  padding:20px;
+  max-width:900px;
+  margin:0 auto;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  color:var(--qg-ink);
+}
+
+/* top bar */
+.new-entry-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.back-link{
+  cursor:pointer;
+  font-size:14px;
+}
+
+.entry-date{
+  font-size:12px;
+  color:var(--qg-ink-soft);
+}
+
+/* toolbar */
+.toolbar{
+  display:flex;
+  gap:8px;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.tool-btn{
+  padding:6px 10px;
+  border:1px solid var(--qg-ink);
+  background:transparent;
+  font:inherit;
+  cursor:pointer;
+  border-radius:0;
+  font-size:13px;
+}
+
+/* pen color options */
+.pen-colors{
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+
+.pen-option{
+  width:18px;
+  height:18px;
+  border:1px solid var(--qg-ink);
+  cursor:pointer;
+}
+
+/* wrapper for the editor to show notebook paper */
+.entry-editor-wrapper{
+  width:100%;
+  min-height:60vh;
+  border:1px solid var(--qg-line);
+  background:var(--qg-paper);
+  box-sizing:border-box;
+  position:relative;
+  font-size:15px;
+  line-height:24px; /* IMPORTANT: distance between ruled lines */
+  padding:20px;
+  overflow:auto;
+}
+
+/* the actual tiptap editor content container */
+.tiptap-editor{
+  min-height:60vh;
+  outline:none;
+  white-space:pre-wrap;
+  word-break:break-word;
+  /* ruled horizontal lines */
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 23px,
+      rgba(0,0,0,0.06) 24px
+    );
+  padding:0; /* wrapper already has padding */
+}
+
+/* ensure text appears "on the line" — match line-height */
+.tiptap-editor p{
+  margin:0 0 0;
+  padding:0;
+  line-height:24px;
+  min-height:24px;
+}
+
+/* inline small images inside notebook — controlled by node attribute width */
+.tiptap-editor img{
+  display:block;
+  margin:8px 0;
+  border:1px solid var(--qg-line);
+  max-width:100%;
+  height:auto;
+}
+
+/* when images have width attribute like "50%", style will reflect that */
+.tiptap-editor img[style]{
+  /* tiptap sets width inline; we allow it */
+}
+
+/* image resize bar */
+.image-resize-bar{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin:8px 0 12px;
+}
+
+.image-resize-bar .small-label{
+  font-size:12px;
+  color:var(--qg-ink-soft);
+}
+
+/* bottom actions */
+.bottom-actions{
+  margin-top:14px;
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+}
+
+/* save button */
+.save-button{
+  padding:10px 14px;
+  border:1px solid var(--qg-ink);
+  background:transparent;
+  font:inherit;
+  cursor:pointer;
+  border-radius:0;
+}
