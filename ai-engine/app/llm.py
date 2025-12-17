@@ -1,7 +1,8 @@
-import subprocess
-import json
-
+import os
+import requests
 MODEL_NAME="phi3"
+OLLAMA_URL=os.getenv("OLLAMA_HOST","http://localhost:11434/api/generate")
+
 
 SYSTEM_PROMPT="""
 You are Quotegray.
@@ -40,14 +41,14 @@ Use them only to understand context, not to judge or repeat verbatim unless help
 """
 
 
-def generate_reply(prompt: str) -> str:
-    process=subprocess.Popen(
-        ["ollama", "run", MODEL_NAME],
-        stdin=subprocess.PIPE,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
+def generate_reply(prompt:str)->str:
+    payload = {
+    "model": MODEL_NAME,
+    "prompt": SYSTEM_PROMPT + "\n\nuser: " + prompt + "\nquotegray:",
+    "stream": False,
+    "stop": ["user:"]
+}
 
-    output, _=process.communicate(prompt)
-    return output.strip()
+    r=requests.post(OLLAMA_URL,json=payload,timeout=120)
+    r.raise_for_status()
+    return r.json().get("response","").strip()
