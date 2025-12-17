@@ -2,7 +2,7 @@
 
 Quotegray is a **local-first, privacy-respecting AI journaling app**.
 It combines:
-- A noetbook style journaling UI 
+- A notebook style journaling UI 
 - On-device AI conversation 
 - Retrieval-Augmented Generation (RAG) over your own journal entries
 - Zero cloud storage by default
