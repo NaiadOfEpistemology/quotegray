@@ -14,7 +14,6 @@
   color:var(--qg-ink);
 }
 
-/* top bar */
 .new-entry-top{
   display:flex;
   justify-content:space-between;
@@ -31,7 +30,6 @@
   color:var(--qg-ink-soft);
 }
 
-/* toolbar */
 .toolbar{
   display:flex;
   gap:8px;
@@ -50,21 +48,6 @@
   font-size:13px;
 }
 
-/* pen color options */
-.pen-colors{
-  display:flex;
-  gap:6px;
-  align-items:center;
-}
-
-.pen-option{
-  width:18px;
-  height:18px;
-  border:1px solid var(--qg-ink);
-  cursor:pointer;
-}
-
-/* wrapper for the editor to show notebook paper */
 .entry-editor-wrapper{
   width:100%;
   min-height:60vh;
@@ -73,37 +56,27 @@
   box-sizing:border-box;
   position:relative;
   font-size:15px;
-  line-height:24px; /* IMPORTANT: distance between ruled lines */
+  line-height:24px;
   padding:20px;
   overflow:auto;
 }
 
-/* the actual tiptap editor content container */
 .tiptap-editor{
   min-height:60vh;
   outline:none;
   white-space:pre-wrap;
   word-break:break-word;
-  /* ruled horizontal lines */
-  background-image:
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 23px,
-      rgba(0,0,0,0.06) 24px
-    );
-  padding:0; /* wrapper already has padding */
+  background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 23px, rgba(0,0,0,0.06) 24px);
+  padding:0;
 }
 
-/* ensure text appears "on the line" — match line-height */
 .tiptap-editor p{
-  margin:0 0 0;
+  margin:0;
   padding:0;
   line-height:24px;
   min-height:24px;
 }
 
-/* inline small images inside notebook — controlled by node attribute width */
 .tiptap-editor img{
   display:block;
   margin:8px 0;
@@ -112,12 +85,6 @@
   height:auto;
 }
 
-/* when images have width attribute like "50%", style will reflect that */
-.tiptap-editor img[style]{
-  /* tiptap sets width inline; we allow it */
-}
-
-/* image resize bar */
 .image-resize-bar{
   display:flex;
   gap:8px;
@@ -130,15 +97,20 @@
   color:var(--qg-ink-soft);
 }
 
-/* bottom actions */
 .bottom-actions{
   margin-top:14px;
   display:flex;
-  justify-content:flex-end;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+}
+
+.bottom-left, .bottom-right{
+  display:flex;
+  align-items:center;
   gap:8px;
 }
 
-/* save button */
 .save-button{
   padding:10px 14px;
   border:1px solid var(--qg-ink);
@@ -146,4 +118,69 @@
   font:inherit;
   cursor:pointer;
   border-radius:0;
+}
+
+.quotegray-chat{
+  display:flex;
+  flex-direction:column;
+  border:1px solid var(--qg-line);
+  background:var(--qg-paper);
+  padding:10px;
+  border-radius:4px;
+  max-height:250px;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.chat-messages-wrapper{
+  flex:1;
+  overflow-y:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:8px;
+  padding-right:4px;
+}
+
+.chat-message{
+  padding:6px 10px;
+  border-radius:12px;
+  max-width:75%;
+  word-break:break-word;
+  line-height:1.4;
+  font-size:13px;
+}
+
+.chat-message.user{
+  align-self:flex-end;
+  background-color: rgba(17,17,17,0.08);
+  color: var(--qg-ink);
+}
+
+.chat-message.assistant{
+  align-self:flex-start;
+  background-color: rgba(247,242,160,0.2);
+  color: var(--qg-ink-soft);
+}
+
+.chat-input-row{
+  display:flex;
+  gap:6px;
+}
+
+.chat-input-row input{
+  flex:1;
+  padding:6px 10px;
+  border:1px solid var(--qg-line);
+  border-radius:4px;
+  font:inherit;
+}
+
+.chat-input-row button{
+  padding:6px 12px;
+  border:1px solid var(--qg-ink);
+  background:transparent;
+  cursor:pointer;
+  border-radius:4px;
+  font:inherit;
 }

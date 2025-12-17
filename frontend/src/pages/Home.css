@@ -17,7 +17,6 @@
   overflow-x:hidden;
 }
 
-/* subtle grain texture */
 .home-root::before{
   content:"";
   position:fixed;
@@ -30,7 +29,6 @@
   z-index:0;
 }
 
-/* Main layout */
 .home-layout{
   max-width:1280px;
   margin:0 auto;
@@ -41,7 +39,6 @@
   z-index:1;
 }
 
-/* Left panel */
 .home-left-layout{
   min-width:260px;
   display:flex;
@@ -78,7 +75,6 @@
   margin-top:10px;
 }
 
-/* GRID — updated to 4 columns */
 .journal-grid{
   display:grid;
   grid-template-columns:repeat(4, minmax(180px, 1fr));
@@ -87,7 +83,6 @@
   margin-top:10px;
 }
 
-/* Journal cards (bigger) */
 .journal-card{
   background:var(--qg-paper);
   border:1px solid var(--qg-line);
@@ -102,7 +97,6 @@
   cursor:pointer;
 }
 
-/* notebook lines */
 .journal-card::before{
   content:"";
   position:absolute;
@@ -118,7 +112,6 @@
   pointer-events:none;
 }
 
-/* subtle vignette */
 .journal-card::after{
   content:"";
   position:absolute;
@@ -131,7 +124,6 @@
   mix-blend-mode:multiply;
 }
 
-/* Card text */
 .journal-new-line1{
   font-size:15px;
   margin-bottom:4px;
@@ -155,7 +147,6 @@
   word-break:break-word;
 }
 
-/* MOBILE (stack to 1 column) */
 @media(max-width:800px){
   .journal-grid{
     grid-template-columns:1fr;

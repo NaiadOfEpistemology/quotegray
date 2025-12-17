@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { registerUser, saveCurrentUser } from "../utils/storage";
 
 export default function Register() {
-  const nav = useNavigate();
-  const [code, setCode] = useState("");
-  const [confirm, setConfirm] = useState("");
-  const [error, setError] = useState("");
+  const nav=useNavigate();
+  const [code, setCode]=useState("");
+  const [confirm, setConfirm]=useState("");
+  const [error, setError]=useState("");
 
-  const create = () => {
+  const create=() => {
     if (!code.trim() || !confirm.trim()) {
       setError("Please enter a code.");
       return;
@@ -18,8 +18,8 @@ export default function Register() {
       return;
     }
 
-    registerUser(code);      // create user with empty journals
-    saveCurrentUser(code);   // mark as logged in
+    registerUser(code);      
+    saveCurrentUser(code);   
     nav("/home");
   };
 
@@ -67,7 +67,7 @@ export default function Register() {
   );
 }
 
-const inputStyle = {
+const inputStyle={
   width: "100%",
   padding: "12px",
   border: "1px solid #999",
@@ -75,7 +75,7 @@ const inputStyle = {
   background: "transparent",
 };
 
-const buttonStyle = {
+const buttonStyle={
   width: "100%",
   padding: "12px",
   background: "#222",

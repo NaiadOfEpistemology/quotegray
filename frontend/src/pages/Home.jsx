@@ -5,18 +5,17 @@ import "./Home.css";
 import { loadJournalsForUser } from "../utils/storage";
 
 export default function Home() {
-  const nav = useNavigate();
-  const [journals, setJournals] = useState([]);
+  const nav=useNavigate();
+  const [journals, setJournals]=useState([]);
 
   useEffect(() => {
-    const saved = loadJournalsForUser();
+    const saved=loadJournalsForUser();
     setJournals(saved || []);
   }, []);
 
-  // helper to force refresh when returning from NewEntry (optional)
   useEffect(() => {
-    const onVisibility = () => {
-      const saved = loadJournalsForUser();
+    const onVisibility=() => {
+      const saved=loadJournalsForUser();
       setJournals(saved || []);
     };
     window.addEventListener("focus", onVisibility);
@@ -39,20 +38,17 @@ export default function Home() {
   className="signout-btn"
   onClick={()=>{
     localStorage.removeItem("quotegray_current_user");
-    window.location.href="/login";   // full reload ensures clean state
+    window.location.href="/login"; 
   }}
 >
   sign out
 </div>
-          {/* grid container: new entry + existing entries */}
           <div className="journal-grid">
-            {/* new entry cube */}
             <div className="journal-card new-entry-card" onClick={() => nav("/new")}>
               <div className="journal-new-line1">write something new</div>
               <div className="journal-new-line2">today is a good day to begin</div>
             </div>
 
-            {/* existing entries */}
             {journals.map((j) => (
               <div
                 key={j.id}
