@@ -51,7 +51,7 @@ This is classic RAG to an extent, but fully local.
 > Retrieval is similarity-based, not perfect memory.  
 > The AI may sometimes retrieve repetitive or loosely related context.
 > The AI might not make sense sometimes. Do remember that quotegray is my brainchild.
-> It could respond slowly, pleas be patient.
+> It could respond slowly, please be patient.
 
 ---
 
